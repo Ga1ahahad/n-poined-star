@@ -1,4 +1,12 @@
 import math as m
+import sys
+
+from PyQt6.QtWidgets import (
+    QApplication,
+    QPushButton,
+    QVBoxLayout,
+    QWidget,
+)
 
 
 class Point:
@@ -35,11 +43,15 @@ class Triangle:
 
 
 if __name__ == '__main__':
-    p1 = Point(-1,-1)
-    p2 = Point(0, 2)
-    p3 = Point(1, -1)
-    pts = [p1,p2,p3]
-    tri = Triangle(pts)
-    tri.center.print()
-    tri.rotate(m.pi/2)
-    tri.p2.print()
+    app = QApplication([])
+    window = QWidget()
+    window.setWindowTitle("QVBoxLayout")
+
+    layout = QVBoxLayout()
+    layout.addWidget(QPushButton("Top"))
+    layout.addWidget(QPushButton("Center"))
+    layout.addWidget(QPushButton("Bottom"))
+    window.setLayout(layout)
+
+    window.show()
+    sys.exit(app.exec())
